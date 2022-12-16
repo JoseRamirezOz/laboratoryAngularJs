@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="MyFirstApp"> <!-- REFERENCIAR AL MODULO DE LA APLICACION -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Controller</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body ng-controller="FirstController"> <!-- MANDAR A LLAMAR AL CONTROLADOR  -->
+    <header>
+        <h1>Presentador del proytecto</h1>
+        <h2>{{"My Name is: Jose " + nombre}}</h2>
+    </header>
+    <section>
+        <b><i>¿Que te parecio la conferencia?</i></b>
+        <br>
+        <input type="text" ng-model="nuevoComentario.comentario">
+        <br>
+        <input type="text" ng-model="nuevoComentario.username">
+        <br>
+        <button ng-click="agregarComentario()">Enviar mi opinion</button>
+
+        <h2>Comentarios</h2>
+        <ul>
+            <li ng-repeat="comentario in comentarios">
+                {{comentario.comentario}} - 
+                <strong>{{comentario.username}}</strong>
+            </li>
+        </ul>
+
+        
+    </section>
+</body>
+</html>
