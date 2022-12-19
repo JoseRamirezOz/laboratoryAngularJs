@@ -4,24 +4,24 @@ angular.module("MyFirstApp",[]).controller("FirstApp",function($scope,$http){
     $scope.newPost = {}
     // PETICION GET
     $http.get("https://jsonplaceholder.typicode.com/posts").success(function(data){
-        //$scope.posts=data
+        $scope.posts=data
         console.log(data)
     }).error(function(err){
         console.log(err)
     })
 
     // PETICION POST 
-    /*$scope.send=function(){
+    $scope.addPost = function(){
         $http.post("https://jsonplaceholder.typicode.com/posts",{
-        userId: 1,
-        title: $scope.newPost.title,
-        body: $scope.newPost.body
+            title: $scope.newPost.title,
+            body: $scope.newPost.body,
+            userId:1
+        })
+        .success(function(data,status,headers,config){
+            $scope.posts.push($scope.newPost)
+            $scope.newPost = {}
+        }).error(function(err,data,status,headers,config){
+            console.log(err)
         })
     }
-    
-    .success(function(err,status,headers,config){
-    })
-    .error(function(err){
-        console.log(err)
-    })*/
 })
